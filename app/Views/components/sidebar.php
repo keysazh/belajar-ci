@@ -1,34 +1,30 @@
-<!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link <?php echo (uri_string() == '') ? "" : "collapsed" ?>" href="/">
+            <a class="nav-link <?php echo (uri_string() == '') ? "" : "collapsed" ?>" href="<?= base_url('/') ?>">
                 <i class="bi bi-grid"></i>
                 <span>Home</span>
             </a>
-        </li><!-- End Home Nav -->
-
-        <li class="nav-item">
-            <a class="nav-link <?php echo (uri_string() == 'keranjang') ? "" : "collapsed" ?>" href="keranjang">
+        </li><li class="nav-item">
+            <a class="nav-link <?php echo (uri_string() == 'keranjang') ? "" : "collapsed" ?>" href="<?= base_url('keranjang') ?>">
                 <i class="bi bi-cart-check"></i>
                 <span>Keranjang</span>
             </a>
-        </li><!-- End Keranjang Nav --> 
-        <?php
-if (session()->get('role') == 'admin') {
-?>
-        
-        <li class="nav-item">
-            <a class="nav-link <?php echo (uri_string() == 'produk') ? "" : "collapsed" ?>" href="produk">
-                <i class="bi bi-receipt"></i>
-                <span>Produk</span>
+        </li><li class="nav-item">
+            <a class="nav-link <?php echo (uri_string() == 'profil') ? "" : "collapsed" ?>" href="<?= base_url('profil') ?>">
+                <i class="bi bi-person"></i>
+                <span>Profil Pengguna</span>
             </a>
-        </li><!-- End Produk Nav --> 
-        <?php
-}
-?>
+        </li><?php if (session()->get('role') == 'admin') : ?>
+            <li class="nav-item">
+                <a class="nav-link <?php echo (uri_string() == 'produk') ? "" : "collapsed" ?>" href="<?= base_url('produk') ?>">
+                    <i class="bi bi-receipt"></i>
+                    <span>Produk</span>
+                </a>
+            </li><?php endif; ?>
+
     </ul>
 
-</aside><!-- End Sidebar-->
+</aside>
